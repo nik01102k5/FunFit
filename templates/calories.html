@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FunFit | Calorie Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/calorie.css')}}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-dumbbell text-cyan"></i> Fun<span class="text-orange">Fit</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Game</a></li>
+            <li><a href="#" class="active">Diet</a></li>
+            <li><a href="#">Chatbot</a></li>
+            <li><a href="#">Rewards</a></li>
+        </ul>
+        <div class="nav-stats">
+            <div class="stat-badge"><i class="fa-solid fa-fire text-orange"></i> 5</div>
+            <div class="stat-badge"><i class="fa-solid fa-coins text-cyan"></i> 1,450</div>
+            <img src="https://ui-avatars.com/api/?name=User&background=00C9D7&color=fff" alt="User" class="avatar">
+        </div>
+    </nav>
+
+    <div id="xp-toast" class="xp-toast">
+        <i class="fa-solid fa-star text-orange"></i> +5 XP for logging a meal!
+    </div>
+
+    <main class="dashboard-container">
+        
+        <div class="left-panel">
+            
+            <div class="glass-card summary-card">
+                <h2>Today's Calories</h2>
+                <div class="progress-ring-container">
+                    <div class="progress-ring" id="calorie-ring">
+                        <div class="ring-inner">
+                            <span id="consumed-text" class="kcal-consumed">0</span>
+                            <span class="kcal-total">/ 2000 kcal</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="remaining-text">Calories remaining: <strong id="remaining-text" class="text-cyan">2000 kcal</strong></p>
+            </div>
+
+            <div class="glass-card macros-card">
+                <h3>Macros Breakdown</h3>
+                
+                <div class="macro-item">
+                    <div class="macro-header">
+                        <span><i class="fa-solid fa-drumstick-bite text-cyan"></i> Protein</span>
+                        <span id="protein-text">0g / 120g</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill bg-cyan" id="protein-bar" style="width: 0%;"></div></div>
+                </div>
+
+                <div class="macro-item">
+                    <div class="macro-header">
+                        <span><i class="fa-solid fa-wheat-awn text-orange"></i> Carbs</span>
+                        <span id="carbs-text">0g / 250g</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill bg-orange" id="carbs-bar" style="width: 0%;"></div></div>
+                </div>
+
+                <div class="macro-item">
+                    <div class="macro-header">
+                        <span><i class="fa-solid fa-droplet text-yellow"></i> Fat</span>
+                        <span id="fat-text">0g / 65g</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress-fill bg-yellow" id="fat-bar" style="width: 0%;"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            
+            <div class="quick-add-section">
+                <h3>Quick Add</h3>
+                <div class="quick-add-buttons">
+                    <button class="quick-btn" onclick="quickAdd('Water', 0)"><i class="fa-solid fa-glass-water"></i> Water</button>
+                    <button class="quick-btn" onclick="quickAdd('Banana', 105)"><i class="fa-solid fa-apple-whole"></i> Banana</button>
+                    <button class="quick-btn" onclick="quickAdd('Roti', 120)"><i class="fa-solid fa-bread-slice"></i> Roti</button>
+                    <button class="quick-btn" onclick="quickAdd('Milk', 150)"><i class="fa-solid fa-mug-hot"></i> Milk</button>
+                </div>
+            </div>
+
+            <div class="glass-card add-food-card">
+                <h3>Log a Meal</h3>
+                <div class="add-food-controls">
+                    
+                    <div class="search-container">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="food-search" placeholder="Search food (e.g. rice, apple, dosa...)">
+                        <ul class="autocomplete-dropdown" id="dropdown"></ul>
+                    </div>
+
+                    <div class="quantity-container">
+                        <input type="number" id="food-qty" placeholder="Qty" min="1" value="1">
+                        <span class="qty-label">servings</span>
+                    </div>
+
+                    <button class="btn-primary" id="add-btn"><i class="fa-solid fa-plus"></i> Add</button>
+                </div>
+            </div>
+
+            <div class="consumed-section">
+                <h3>Consumed Today</h3>
+                <div class="food-list" id="food-list">
+                    </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="calorie.js"></script>
+</body>
+</html>

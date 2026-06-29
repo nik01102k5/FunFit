@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FunFit | Gamified Fitness Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+</head>
+
+<body>
+
+    <header class="top-bar">
+        <div class="logo">
+            <i class="fa-solid fa-dumbbell text-cyan"></i> Fun<span class="text-orange">Fit</span>
+        </div>
+
+        <div class="topbar-xp-container">
+            <span class="xp-label">XP</span>
+            <div class="xp-track">
+                <div class="xp-fill" style="width: 75%;"></div>
+            </div>
+            <span class="xp-value">7,500 / 10k</span>
+        </div>
+
+        <div class="topbar-stats">
+            <div class="stat-pill level-pill">
+                <span class="lvl-text">LVL</span>
+                <span class="lvl-num">12</span>
+            </div>
+            <div class="stat-pill coin-pill">
+                <i class="fa-solid fa-coins text-orange"></i>
+                <span>1.2k</span>
+            </div>
+            <div class="stat-pill streak-pill">
+                <i class="fa-solid fa-fire text-orange"></i>
+                <span>5</span>
+            </div>
+            <div class="avatar">
+                <img src="https://ui-avatars.com/api/?name=Alex&background=00C9D7&color=fff" alt="User Avatar">
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-wrapper">
+
+        <main class="main-content">
+
+            <section class="hero-card fade-in">
+                <div class="hero-content">
+                    <h1>Today's Challenges</h1>
+                    <p>You're on fire! Only <strong>200 XP</strong> away from Level 13.</p>
+                    <button class="btn btn-primary btn-large shadow-hover">Start Playing <i
+                            class="fa-solid fa-play"></i></button>
+                </div>
+                <div class="hero-graphic">
+                    <div class="big-progress-ring">
+                        <div class="ring-inner">
+                            <span class="ring-text">75%</span>
+                            <span class="ring-sub">Daily Goal</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="missions-section">
+                <div class="section-header">
+                    <h2>Your Missions</h2>
+                    <a href="#" class="view-all">View All</a>
+                </div>
+
+                <div class="mission-grid">
+
+                    <div class="mission-tile shadow-hover fade-in" style="animation-delay: 0.1s;">
+                        <div class="tile-top">
+                            <div class="icon-box bg-cyan-light text-cyan"><i class="fa-solid fa-shoe-prints"></i></div>
+                            <div class="mission-tags">
+                                <span class="tag bg-orange-light text-orange">+50 XP</span>
+                                <span class="tag bg-gray-light text-gray">150 kcal</span>
+                            </div>
+                        </div>
+                        <h3>Walk 5,000 Steps</h3>
+                        <div class="tile-progress">
+                            <div class="mini-track">
+                                <div class="mini-fill bg-cyan" style="width: 60%;"></div>
+                            </div>
+                            <span class="mini-text">3k / 5k</span>
+                        </div>
+                        <button class="btn btn-primary-outline full-width">Complete Step</button>
+                    </div>
+
+                    <div class="mission-tile shadow-hover fade-in" style="animation-delay: 0.2s;">
+                        <div class="tile-top">
+                            <div class="icon-box bg-purple-light text-purple"><i class="fa-solid fa-glass-water"></i>
+                            </div>
+                            <div class="mission-tags">
+                                <span class="tag bg-orange-light text-orange">+30 XP</span>
+                            </div>
+                        </div>
+                        <h3>Hydration Hero</h3>
+                        <div class="tile-progress">
+                            <div class="mini-track">
+                                <div class="mini-fill bg-purple" style="width: 25%;"></div>
+                            </div>
+                            <span class="mini-text">1 / 4 Bottles</span>
+                        </div>
+                        <button class="btn btn-primary-outline full-width">Drink Water</button>
+                    </div>
+
+                    <div class="mission-tile completed shadow-hover fade-in" style="animation-delay: 0.3s;">
+                        <div class="tile-top">
+                            <div class="icon-box bg-green-light text-green"><i class="fa-solid fa-broom"></i></div>
+                            <div class="mission-tags">
+                                <span class="tag bg-green-light text-green">Done</span>
+                            </div>
+                        </div>
+                        <h3>Clean Your Room</h3>
+                        <div class="tile-progress">
+                            <div class="mini-track">
+                                <div class="mini-fill bg-green" style="width: 100%;"></div>
+                            </div>
+                            <span class="mini-text text-green">Task Complete!</span>
+                        </div>
+                        <button class="btn btn-success full-width"><i class="fa-solid fa-check"></i> Completed</button>
+                    </div>
+
+                    <div class="mission-tile shadow-hover fade-in" style="animation-delay: 0.4s;">
+                        <div class="tile-top">
+                            <div class="icon-box bg-orange-light text-orange"><i class="fa-solid fa-person-running"></i>
+                            </div>
+                            <div class="mission-tags">
+                                <span class="tag bg-orange-light text-orange">+100 XP</span>
+                                <span class="tag bg-gray-light text-gray">300 kcal</span>
+                            </div>
+                        </div>
+                        <h3>Morning Run</h3>
+                        <div class="tile-progress">
+                            <div class="mini-track">
+                                <div class="mini-fill bg-orange" style="width: 0%;"></div>
+                            </div>
+                            <span class="mini-text">0 / 20 mins</span>
+                        </div>
+                        <button class="btn btn-primary-outline full-width">Start Run</button>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="influencers-section mt-5 fade-in" style="animation-delay: 0.5s;">
+                <div class="section-header">
+                    <h2>Featured Challenges</h2>
+                </div>
+
+                <div class="influencer-carousel custom-scrollbar">
+
+                    <div class="influencer-card shadow-hover">
+                        <img src="https://ui-avatars.com/api/?name=Chloe+T&background=FF8C42&color=fff"
+                            alt="Influencer">
+                        <h4>Chloe T.</h4>
+                        <p>2-Week Shred</p>
+                        <span class="tag bg-orange-light text-orange mb-3">Fat Burn</span>
+                        <button class="btn btn-primary-outline btn-sm full-width">Join</button>
+                    </div>
+
+                    <div class="influencer-card shadow-hover">
+                        <img src="https://ui-avatars.com/api/?name=Adrien+Y&background=00C9D7&color=fff"
+                            alt="Influencer">
+                        <h4>Adrien Yoga</h4>
+                        <p>30 Days of Zen</p>
+                        <span class="tag bg-cyan-light text-cyan mb-3">Yoga</span>
+                        <button class="btn btn-primary-outline btn-sm full-width">Join</button>
+                    </div>
+
+                    <div class="influencer-card shadow-hover">
+                        <img src="https://ui-avatars.com/api/?name=Mark+H&background=8B5CF6&color=fff" alt="Influencer">
+                        <h4>Mark H.</h4>
+                        <p>Spartan Prep</p>
+                        <span class="tag bg-purple-light text-purple mb-3">Strength</span>
+                        <button class="btn btn-primary-outline btn-sm full-width">Join</button>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <aside class="sidebar">
+
+            <div class="weekly-card shadow-hover fade-in">
+                <div class="weekly-header">
+                    <h3>Weekly Goal</h3>
+                    <i class="fa-solid fa-bullseye text-orange"></i>
+                </div>
+                <h2>Burn 3,000 Calories</h2>
+                <div class="weekly-progress">
+                    <div class="mini-track">
+                        <div class="mini-fill bg-orange" style="width: 45%;"></div>
+                    </div>
+                    <span>1,350 / 3,000 kcal</span>
+                </div>
+                <div class="weekly-rewards">
+                    <span>Rewards:</span>
+                    <div class="reward-icons">
+                        <div class="r-icon"><i class="fa-solid fa-coins text-orange"></i></div>
+                        <div class="r-icon"><i class="fa-solid fa-medal text-cyan"></i></div>
+                    </div>
+                </div>
+                <button class="btn btn-orange full-width mt-3">Log Activity</button>
+            </div>
+
+            <div class="leaderboard-card shadow-hover fade-in" style="animation-delay: 0.2s;">
+                <div class="lb-header">
+                    <h3>Friends Rank</h3>
+                    <button class="btn-icon"><i class="fa-solid fa-user-plus"></i></button>
+                </div>
+                <p class="lb-motivation">You’re #3 – keep pushing! <i class="fa-solid fa-rocket text-orange"></i></p>
+
+                <ul class="lb-list">
+                    <li class="lb-item">
+                        <span class="lb-rank">1</span>
+                        <img src="https://ui-avatars.com/api/?name=Sam+X&background=FF8C42&color=fff" alt="User">
+                        <div class="lb-info">
+                            <span class="lb-name">Sam_X</span>
+                            <span class="lb-pts text-gray">14.2k pts</span>
+                        </div>
+                    </li>
+                    <li class="lb-item">
+                        <span class="lb-rank">2</span>
+                        <img src="https://ui-avatars.com/api/?name=Sarah+R&background=8B5CF6&color=fff" alt="User">
+                        <div class="lb-info">
+                            <span class="lb-name">Sarah_R</span>
+                            <span class="lb-pts text-gray">13.5k pts</span>
+                        </div>
+                    </li>
+                    <li class="lb-item current-user">
+                        <span class="lb-rank text-cyan">3</span>
+                        <img src="https://ui-avatars.com/api/?name=Alex&background=00C9D7&color=fff" alt="User">
+                        <div class="lb-info">
+                            <span class="lb-name text-cyan">You</span>
+                            <span class="lb-pts text-cyan">12.1k pts</span>
+                        </div>
+                    </li>
+                    <li class="lb-item">
+                        <span class="lb-rank">4</span>
+                        <img src="https://ui-avatars.com/api/?name=Neo+M&background=10B981&color=fff" alt="User">
+                        <div class="lb-info">
+                            <span class="lb-name">Neo_M</span>
+                            <span class="lb-pts text-gray">11.9k pts</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="achievements-card shadow-hover fade-in" style="animation-delay: 0.4s;">
+                <h3>Badges Earned</h3>
+                <div class="badge-grid">
+                    <div class="badge-item unlocked bg-cyan-light text-cyan"><i class="fa-solid fa-glass-water"></i>
+                    </div>
+                    <div class="badge-item unlocked bg-orange-light text-orange"><i class="fa-solid fa-sun"></i></div>
+                    <div class="badge-item unlocked bg-green-light text-green"><i class="fa-solid fa-leaf"></i></div>
+                    <div class="badge-item locked"><i class="fa-solid fa-khanda"></i></div>
+                    <div class="badge-item locked"><i class="fa-solid fa-dumbbell"></i></div>
+                    <div class="badge-item locked"><i class="fa-solid fa-person-running"></i></div>
+                </div>
+            </div>
+
+        </aside>
+
+    </div>
+
+</body>
+
+</html>

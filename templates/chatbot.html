@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FunFit AI Coach</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
+</head>
+
+<body>
+
+    <div class="chat-wrapper">
+        <header class="chat-header">
+            <button class="icon-btn back-btn"><i class="fa-solid fa-arrow-left"></i></button>
+
+            <div class="bot-info">
+                <h2>FunFit AI Coach</h2>
+                <p>Your personal fitness assistant</p>
+            </div>
+
+            <div class="status-indicator">
+                <span class="status-dot"></span> Online
+            </div>
+        </header>
+
+        <main class="chat-messages custom-scrollbar" id="chatBox">
+
+            <div class="msg bot-msg">
+                <div class="avatar bg-cyan"><i class="fa-solid fa-robot"></i></div>
+                <div class="bubble">
+                    <p>Hi! I'm your FunFit AI Coach 💪<br>Ask me anything about fitness.</p>
+                </div>
+            </div>
+
+        </main>
+
+        <div class="quick-actions custom-scrollbar">
+            <button class="pill-btn" onclick="quickMsg('Create a diet plan')">Diet Plan</button>
+            <button class="pill-btn" onclick="quickMsg('Suggest a workout')">Suggest Workout</button>
+            <button class="pill-btn" onclick="quickMsg('Track my calories')">Track Calories</button>
+            <button class="pill-btn" onclick="quickMsg('How to improve sleep?')">Improve Sleep</button>
+            <button class="pill-btn" onclick="quickMsg('How to lose weight?')">Weight Loss</button>
+        </div>
+
+        <footer class="chat-input-area">
+            <button class="icon-btn text-gray"><i class="fa-solid fa-microphone"></i></button>
+            <input type="text" class="msg-input" id="userInput" placeholder="Ask anything about fitness...">
+            <button class="send-btn bg-cyan" id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+        </footer>
+    </div>
+
+</body>
+
+<script>
+    const input = document.getElementById("userInput");
+    const sendBtn = document.getElementById("sendBtn");
+    const chatBox = document.getElementById("chatBox");
+
+    sendBtn.addEventListener("click", sendMessage);
+
+    input.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") sendMessage();
+    });
+
+    function sendMessage() {
+        const message = input.value.trim();
+        if (!message) return;
+
+        addUserMessage(message);
+        input.value = "";
+
+        const botBubble = addBotMessage("");
+
+        fetch("/chat", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: message
+            })
+        })
+            .then(response => {
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+
+                function read() {
+                    reader.read().then(({ done, value }) => {
+                        if (done) return;
+
+                        const chunk = decoder.decode(value);
+                        botBubble.innerText += chunk;
+
+                        chatBox.scrollTop = chatBox.scrollHeight;
+                        read();
+                    });
+                }
+
+                read();
+            });
+    }
+
+    function addUserMessage(text) {
+        const msg = `
+    <div class="msg user-msg">
+        <div class="bubble"><p>${text}</p></div>
+    </div>`;
+        chatBox.insertAdjacentHTML("beforeend", msg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function addBotMessage(text) {
+        const id = "bot-" + Date.now();
+
+        const msg = `
+    <div class="msg bot-msg">
+        <div class="avatar bg-cyan"><i class="fa-solid fa-robot"></i></div>
+        <div class="bubble"><p id="${id}">${text}</p></div>
+    </div>`;
+
+        chatBox.insertAdjacentHTML("beforeend", msg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        return document.getElementById(id);
+    }
+
+    function quickMsg(text) {
+        input.value = text;
+        sendMessage();
+    }
+</script>
+
+</html>

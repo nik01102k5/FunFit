@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FunFit | Your Personalized Diet Plan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/diet.css')}}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-dumbbell"></i> FunFit
+        </div>
+        <div class="nav-right">
+            <span class="day-badge"><i class="fa-regular fa-calendar-check"></i> Day 1 Plan</span>
+            <img src="https://ui-avatars.com/api/?name=User&background=00C9D7&color=fff" alt="User" class="avatar">
+        </div>
+    </nav>
+
+    <main class="dashboard-container">
+
+        <header class="plan-header">
+            <div class="header-titles">
+                <div class="ai-badge">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> AI Generated Plan
+                </div>
+                <h1>Your Personalized Diet Plan</h1>
+                <p>Based on your goal of <strong>Weight Loss</strong> and daily calorie needs.</p>
+            </div>
+        </header>
+
+        <section class="summary-card glass-card fade-up" style="animation-delay: 0.1s;">
+            <div class="calorie-total">
+                <h3>Daily Target</h3>
+                <div class="calories-big">2,150 <span>kcal</span></div>
+            </div>
+
+            <div class="macro-container">
+                <div class="macro-item">
+                    <div class="macro-header">
+                        <span class="macro-title"><i class="fa-solid fa-drumstick-bite icon-cyan"></i> Protein</span>
+                        <span class="macro-value">160g</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill fill-cyan" style="width: 40%;"></div>
+                    </div>
+                </div>
+
+                <div class="macro-item">
+                    <div class="macro-header">
+                        <span class="macro-title"><i class="fa-solid fa-wheat-awn icon-orange"></i> Carbs</span>
+                        <span class="macro-value">210g</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill fill-orange" style="width: 45%;"></div>
+                    </div>
+                </div>
+
+                <div class="macro-item">
+                    <div class="macro-header">
+                        <span class="macro-title"><i class="fa-solid fa-droplet icon-yellow"></i> Fats</span>
+                        <span class="macro-value">60g</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill fill-yellow" style="width: 15%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="meal-plan-section">
+            <h2 class="section-title">Today's Meals</h2>
+
+            <div class="meal-grid">
+
+                <div class="meal-card glass-card fade-up" style="animation-delay: 0.2s;">
+                    <div class="meal-header">
+                        <div class="meal-title">
+                            <div class="icon-box"><i class="fa-solid fa-mug-hot"></i></div>
+                            <h3>Breakfast</h3>
+                        </div>
+                        <span class="meal-calories">450 kcal</span>
+                    </div>
+                    <span class="meal-badge badge-protein">High Protein</span>
+                    <ul class="food-list">
+                        <li><i class="fa-solid fa-check"></i> 3 Whole Eggs (scrambled)</li>
+                        <li><i class="fa-solid fa-check"></i> 2 Slices Whole Wheat Toast</li>
+                        <li><i class="fa-solid fa-check"></i> 1/2 Avocado</li>
+                        <li><i class="fa-solid fa-check"></i> Black Coffee / Green Tea</li>
+                    </ul>
+                </div>
+
+                <div class="meal-card glass-card fade-up" style="animation-delay: 0.3s;">
+                    <div class="meal-header">
+                        <div class="meal-title">
+                            <div class="icon-box"><i class="fa-solid fa-apple-whole"></i></div>
+                            <h3>Mid-Morning Snack</h3>
+                        </div>
+                        <span class="meal-calories">150 kcal</span>
+                    </div>
+                    <span class="meal-badge badge-light">Light Meal</span>
+                    <ul class="food-list">
+                        <li><i class="fa-solid fa-check"></i> 1 Medium Apple</li>
+                        <li><i class="fa-solid fa-check"></i> 15g Almonds (approx. 12 almonds)</li>
+                    </ul>
+                </div>
+
+                <div class="meal-card glass-card fade-up" style="animation-delay: 0.4s;">
+                    <div class="meal-header">
+                        <div class="meal-title">
+                            <div class="icon-box"><i class="fa-solid fa-bowl-food"></i></div>
+                            <h3>Lunch</h3>
+                        </div>
+                        <span class="meal-calories">600 kcal</span>
+                    </div>
+                    <span class="meal-badge badge-balanced">Balanced</span>
+                    <ul class="food-list">
+                        <li><i class="fa-solid fa-check"></i> 150g Grilled Chicken Breast</li>
+                        <li><i class="fa-solid fa-check"></i> 100g Quinoa (cooked)</li>
+                        <li><i class="fa-solid fa-check"></i> 1 Cup Steamed Broccoli & Carrots</li>
+                        <li><i class="fa-solid fa-check"></i> 1 tbsp Olive Oil Dressing</li>
+                    </ul>
+                </div>
+
+                <div class="meal-card glass-card fade-up" style="animation-delay: 0.5s;">
+                    <div class="meal-header">
+                        <div class="meal-title">
+                            <div class="icon-box"><i class="fa-solid fa-cookie-bite"></i></div>
+                            <h3>Evening Snack</h3>
+                        </div>
+                        <span class="meal-calories">250 kcal</span>
+                    </div>
+                    <span class="meal-badge badge-energy">Energy Boost</span>
+                    <ul class="food-list">
+                        <li><i class="fa-solid fa-check"></i> 1 Scoop Whey Protein (in water)</li>
+                        <li><i class="fa-solid fa-check"></i> 2 Rice Cakes</li>
+                        <li><i class="fa-solid fa-check"></i> 1 tbsp Peanut Butter</li>
+                    </ul>
+                </div>
+
+                <div class="meal-card glass-card fade-up" style="animation-delay: 0.6s;">
+                    <div class="meal-header">
+                        <div class="meal-title">
+                            <div class="icon-box"><i class="fa-solid fa-fish"></i></div>
+                            <h3>Dinner</h3>
+                        </div>
+                        <span class="meal-calories">500 kcal</span>
+                    </div>
+                    <span class="meal-badge badge-lowcarb">Low Carb</span>
+                    <ul class="food-list">
+                        <li><i class="fa-solid fa-check"></i> 150g Baked Salmon</li>
+                        <li><i class="fa-solid fa-check"></i> Large Mixed Green Salad</li>
+                        <li><i class="fa-solid fa-check"></i> 1/2 Cup Asparagus</li>
+                        <li><i class="fa-solid fa-check"></i> Zero Calorie Lemon Dressing</li>
+                    </ul>
+                </div>
+
+                <div class="meal-card tips-card glass-card fade-up" style="animation-delay: 0.7s;">
+                    <div class="tips-header">
+                        <i class="fa-regular fa-lightbulb"></i>
+                        <h3>Daily Health Tips</h3>
+                    </div>
+                    <ul class="tips-list">
+                        <li><strong>Hydration:</strong> Aim to drink at least 3 Liters of water throughout the day.</li>
+                        <li><strong>Consistency:</strong> Try to eat your meals at the same time each day to regulate
+                            metabolism.</li>
+                        <li><strong>Sleep:</strong> Ensure 7-8 hours of sleep for optimal muscle recovery and fat loss.
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="action-buttons fade-up" style="animation-delay: 0.8s;">
+            <a href="{{url_for('loading')}}" class="btn btn-outline"><i class="fa-solid fa-rotate-right"></i> Regenerate
+                Plan</a>
+            <a href="{{url_for('index')}}" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Plan</a>
+        </div>
+
+    </main>
+
+</body>
+
+</html>

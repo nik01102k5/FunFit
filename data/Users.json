@@ -1,0 +1,24 @@
+[
+    {
+        "email": "test@gmail.com",
+        "password": "123456",
+        "name": "Nikhil",
+        "water": {
+            "intake": 3,
+            "goal": 3,
+            "completed": true
+        },
+        "points": 10
+    },
+    {
+        "email": "Nikhil@gmail.com",
+        "password": "123456",
+        "name": "Nikhil",
+        "water": {
+            "intake": 3,
+            "goal": 3,
+            "completed": true
+        },
+        "points": 10
+    }
+]

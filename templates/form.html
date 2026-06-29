@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FunFit | Fitness Profile Setup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='/css/form.css')}}">
+</head>
+
+<body>
+
+    <div class="form-wrapper">
+        <div class="glass-card fade-in">
+
+            <div class="progress-header">
+                <span class="step-text">Step 1 of 2</span>
+                <div class="progress-bar-container">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="form-header-text">
+                <h2>Set Up Your Fitness Profile</h2>
+                <p>Help us personalize your fitness journey to get the best results.</p>
+            </div>
+
+            <form action="#" class="onboarding-form">
+
+                <div class="form-section">
+                    <h3 class="section-title"><i class="fa-regular fa-id-card"></i> Basic Info</h3>
+
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label>Age</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-calendar-day input-icon"></i>
+                                <input type="number" placeholder="e.g. 25" min="12" max="100" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Body Fat %
+                                <div class="tooltip-container">
+                                    <i class="fa-solid fa-circle-info info-icon"></i>
+                                    <span class="tooltip-text">Leave blank if you are unsure. This helps fine-tune your
+                                        calorie goals.</span>
+                                </div>
+                            </label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-percent input-icon"></i>
+                                <input type="number" placeholder="Optional" min="3" max="60">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label>Height</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-ruler-vertical input-icon"></i>
+                                <input type="number" placeholder="175" required>
+                                <span class="input-suffix">cm</span>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Weight</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-scale-unbalanced input-icon"></i>
+                                <input type="number" placeholder="70" required>
+                                <span class="input-suffix">kg</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label>Gender</label>
+                        <div class="radio-group">
+                            <label class="radio-pill">
+                                <input type="radio" name="gender" value="male" required>
+                                <span><i class="fa-solid fa-mars"></i> Male</span>
+                            </label>
+                            <label class="radio-pill">
+                                <input type="radio" name="gender" value="female">
+                                <span><i class="fa-solid fa-venus"></i> Female</span>
+                            </label>
+                            <label class="radio-pill">
+                                <input type="radio" name="gender" value="other">
+                                <span><i class="fa-solid fa-genderless"></i> Other</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="section-title"><i class="fa-solid fa-briefcase"></i> Lifestyle</h3>
+
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label>Activity Level</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-person-running input-icon"></i>
+                                <select required>
+                                    <option value="" disabled selected>Select activity</option>
+                                    <option value="sedentary">Sedentary (Little to no exercise)</option>
+                                    <option value="light">Lightly Active (1-3 days/week)</option>
+                                    <option value="moderate">Moderately Active (3-5 days/week)</option>
+                                    <option value="very">Very Active (6-7 days/week)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Daily Routine</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-clock input-icon"></i>
+                                <select required>
+                                    <option value="" disabled selected>Select routine</option>
+                                    <option value="student">Student</option>
+                                    <option value="professional">Working Professional</option>
+                                    <option value="athlete">Athlete</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="section-title"><i class="fa-solid fa-bed"></i> Habits</h3>
+
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label>Daily Water Intake</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-glass-water input-icon"></i>
+                                <select required>
+                                    <option value="" disabled selected>Select intake</option>
+                                    <option value="low">Low (< 1.5 Liters)</option>
+                                    <option value="medium">Medium (1.5 - 2.5 Liters)</option>
+                                    <option value="high">High (> 2.5 Liters)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Average Sleep</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-moon input-icon"></i>
+                                <input type="number" placeholder="e.g. 7" min="3" max="14" required>
+                                <span class="input-suffix">hrs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="section-title"><i class="fa-solid fa-bullseye"></i> Health Goals</h3>
+
+                    <div class="input-group full-width">
+                        <label>Primary Goal</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-trophy input-icon"></i>
+                            <select required>
+                                <option value="" disabled selected>What do you want to achieve?</option>
+                                <option value="weight_loss">Weight Loss</option>
+                                <option value="muscle_gain">Muscle Gain</option>
+                                <option value="maintain">Maintain Fitness</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label>Current Condition & Notes</label>
+                        <div class="input-wrapper textarea-wrapper">
+                            <textarea rows="3"
+                                placeholder="Any injuries, health conditions, or personal notes..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <a href="{{url_for('index')}}" class="btn btn-outline">Skip for now</a>
+                    <a href="{{url_for('loading')}}" class="btn btn-outline">Generate Plan <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
